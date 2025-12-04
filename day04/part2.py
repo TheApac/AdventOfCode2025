@@ -14,8 +14,7 @@ while True:
                 for dr, dc in directions:
                     nr, nc = r + dr, c + dc
                     if rows > nr >= 0 and cols > nc >= 0:
-                        if grid[nr][nc] == "@":
-                            adj_count += 1
+                        adj_count += 1 if grid[nr][nc] == "@" else 0
                 if adj_count < 4:
                     to_mark.append((r, c))
     accessible += len(to_mark)

@@ -1,4 +1,4 @@
-with open("files/example", "r") as f:
+with open("files/full", "r") as f:
     grid = [list(line.strip()) for line in f]
 
 rows = len(grid)
@@ -13,8 +13,7 @@ for r in range(rows):
             for dr, dc in directions:
                 nr, nc = r + dr, c + dc
                 if rows > nr >= 0 and cols > nc >= 0:
-                    if grid[nr][nc] == "@":
-                        adj_count += 1
+                    adj_count += 1 if grid[nr][nc] == "@" else 0
             if adj_count < 4:
                 accessible += 1
 print(accessible)
